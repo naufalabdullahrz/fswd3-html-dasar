@@ -1,0 +1,85 @@
+:root {
+  --bg: #FEC0CD;
+  --bgcrad1: #C3E0E4;
+  --bgline1: #507C9B;
+  --colorfh1:#2B4168;
+  --colorfp1:#82A4B5;
+  --bgcrad2:#F8EDDF;
+  --bgline2:#945747;
+  --colorfh2:#BA7E73;
+  --colorfp2:#DAC7B2;
+}
+
+h1{
+    text-align: center;
+}
+body {
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg) ;
+  }
+  
+.container {
+  padding: 20px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin: 5px 15px;
+  gap:20px;
+  position: relative;
+  }
+  
+.card {
+  width: 250px;
+  height: auto;
+  grid-column: span 1;
+  margin: 10px 0;
+  border-radius: 25px;
+  position: relative;
+  border: 2px solid var(--bgline1);
+  background-color: var(--bgcrad1);
+}
+  
+.head-card img {
+  width: 250px;
+  height: 200px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+
+}
+  
+.body-card h1{
+  padding: 10px 20px;
+  margin: 0;
+  color: var(--colorfh1);
+}
+
+.body-card p {
+  padding: 10px 20px;
+  margin: 0;
+  color: var(--colorfp1);
+}
+
+.card2 {
+  width: 250px;
+  height: auto;
+  grid-column: span 1;
+  margin: 10px 0;
+  border-radius: 25px;
+  position: relative;
+  border: 2px solid var(--bgline2);
+  background-color: var(--bgcrad2);
+}
+
+.body-card2 h1{
+  padding: 10px 20px;
+  margin: 0;
+  color: var(--colorfh2);
+}
+
+.body-card2 p {
+  padding: 10px 20px;
+  margin: 0;
+  color: var(--colorfp2);
+}
