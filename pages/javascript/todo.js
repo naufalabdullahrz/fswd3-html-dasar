@@ -2,12 +2,13 @@ let todos = {}
 const STORAGE_DO = "STORAGE_DO"
 const todoBox = document.getElementById('todo')
 
+
 //membaca localStorage 
 if(todoFromLocal = localStorage.getItem(STORAGE_DO)) {
     todos = JSON.parse(todoFromLocal)
     for(let key in todos)
-        createList(key, todos[key])
-        }
+    createList(key, todos[key])
+}
 
 
     function syncLocalStorage(activity, item, status = false) {
@@ -27,11 +28,28 @@ if(todoFromLocal = localStorage.getItem(STORAGE_DO)) {
             return
         }
 
-       // TODO 
+// TODO 
 function add() {
     let textbaru = document.getElementById('dobaru')
     createList(textbaru.value)
-    syncLocalStorage('ADD', textbaru.value)    
+    syncLocalStorage('ADD', textbaru.value)
+    //API
+    let dataapi = {
+        List: textbaru.value
+    };
+    let fetchOptions = {
+        method: "POST", 
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify(dataapi),
+    };
+    
+    fetch(
+        "https://crudcrud.com/api/67a63beebea3422d8c72a3af05be62cf/todoku", fetchOptions
+    )
+    .then((response)=>response.json())
+    .then((data)=>console.log(data));
     textbaru.value = ''
 }
 
@@ -57,6 +75,8 @@ function removeItem(elm) {
     elm.parentElement.remove()
     syncLocalStorage('DELETE', elm.previousElementSibling.innerText.trim())    
 }
+
+
 
 
 
